@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity2">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".MainActivity2">
+
+        <Button
+            android:id="@+id/button2"
+            android:layout_width="167dp"
+            android:layout_height="62dp"
+            android:layout_marginTop="436dp"
+            android:fontFamily="@font/rubik_bold"
+            android:shadowColor="#FFFFFF"
+            android:text="להתחברות"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.502"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:strokeColor="#FFFFFF" />
+
+        <LinearLayout
+            android:layout_width="84dp"
+            android:layout_height="281dp"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.38"
+            tools:layout_editor_absoluteX="290dp">
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="match_parent"
+                android:layout_height="41dp"
+                android:text="אימייל:"
+                android:textColor="#000000"
+                android:textSize="24sp" />
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="14dp" />
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="match_parent"
+                android:layout_height="41dp"
+                android:text="סיסמה:"
+                android:textColor="#000000"
+                android:textSize="24sp" />
+
+            <LinearLayout
+                android:layout_width="104dp"
+                android:layout_height="280dp"
+                android:orientation="vertical" />
+        </LinearLayout>
+
+        <EditText
+            android:id="@+id/editTextTextEmailAddress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textEmailAddress"
+            tools:layout_editor_absoluteX="48dp"
+            tools:layout_editor_absoluteY="232dp" />
+
+        <EditText
+            android:id="@+id/editTextTextPassword3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textPassword"
+            tools:layout_editor_absoluteX="48dp"
+            tools:layout_editor_absoluteY="294dp" />
+
+        <Button
+            android:id="@+id/button6"
+            android:layout_width="87dp"
+            android:layout_height="81dp"
+            android:background="@drawable/img_1"
+            android:fontFamily="@font/rubik_bold"
+            android:shadowColor="#FFFFFF"
+            android:textSize="20sp"
+            app:strokeColor="#FFFFFF"
+            tools:layout_editor_absoluteX="306dp"
+            tools:layout_editor_absoluteY="772dp" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <TextView
+        android:id="@+id/titel2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/rubik_bold"
+        android:text="התחברות"
+        android:textColor="#93D2DA"
+        android:textSize="70sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.141" />
+
+    <LinearLayout
+        android:id="@+id/layout1"
+        android:layout_width="239dp"
+        android:layout_height="283dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteX="36dp"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
