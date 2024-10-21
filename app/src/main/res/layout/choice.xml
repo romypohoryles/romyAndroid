@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity5">
+    tools:context=".choice">
 
     <Button
         android:id="@+id/button8"
@@ -22,7 +22,7 @@
         app:strokeColor="#FFFFFF" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/newV"
         android:layout_width="271dp"
         android:layout_height="145dp"
         android:layout_marginTop="292dp"
@@ -37,7 +37,7 @@
         app:strokeColor="#FFFFFF" />
 
     <Button
-        android:id="@+id/button7"
+        android:id="@+id/search"
         android:layout_width="271dp"
         android:layout_height="145dp"
         android:layout_marginTop="460dp"
