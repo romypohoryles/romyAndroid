@@ -12,6 +12,9 @@
         android:theme="@style/Theme.RomyProjectAndroid"
         tools:targetApi="31">
         <activity
+            android:name=".coustom_layout"
+            android:exported="false" />
+        <activity
             android:name=".new_volnteer"
             android:exported="false" />
         <activity

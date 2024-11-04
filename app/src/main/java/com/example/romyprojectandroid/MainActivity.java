@@ -7,6 +7,8 @@ import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import java.util.ArrayList;
+
 public class MainActivity extends AppCompatActivity {
 
     @Override
@@ -31,5 +33,12 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+//        ArrayList<Toy> voleneerArrayList = new ArrayList<>();
+//        for(int i = 0; i<20; i++){
+//            voleneerArrayList.add(new Toy())
+//        }
+
+
     }
 }
