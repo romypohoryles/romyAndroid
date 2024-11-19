@@ -27,9 +27,9 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
+        app:layout_constraintTop_toTopOf="parent">
 
         <EditText
             android:id="@+id/editTextTextPersonName4"
@@ -72,6 +72,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="date" />
+
     </LinearLayout>
 
     <LinearLayout
@@ -82,6 +83,18 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
+
+        <TextView
+            android:id="@+id/textView6"
+            android:layout_width="100dp"
+            android:layout_height="33dp"
+            android:text="שם פרטי:"
+            android:textColor="#000000"
+            android:textSize="24sp" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="14dp" />
 
         <TextView
             android:id="@+id/textView5"
@@ -135,6 +148,14 @@
             android:layout_width="match_parent"
             android:layout_height="12dp" />
 
+        <TextView
+            android:id="@+id/textView9"
+            android:layout_width="113dp"
+            android:layout_height="26dp"
+            android:text="תאריך לידה:"
+            android:textColor="#000000"
+            android:textSize="19sp" />
+
     </LinearLayout>
 
     <Button
@@ -177,25 +198,5 @@
         android:textSize="70sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/textView6"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="שם פרטי:"
-        android:textColor="#000000"
-        android:textSize="24sp"
-        tools:layout_editor_absoluteX="309dp"
-        tools:layout_editor_absoluteY="305dp" />
-
-    <TextView
-        android:id="@+id/textView9"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="תאריך לידה:"
-        android:textColor="#000000"
-        android:textSize="19sp"
-        tools:layout_editor_absoluteX="305dp"
-        tools:layout_editor_absoluteY="546dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

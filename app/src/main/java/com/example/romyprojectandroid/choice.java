@@ -27,7 +27,7 @@ public class choice extends AppCompatActivity {
         search.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(choice.this, new_volnteer.class);
+                Intent intent = new Intent(choice.this, coustom_layout.class);
                 startActivity(intent);
             }
         });
