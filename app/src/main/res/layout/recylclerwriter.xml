@@ -1,33 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:padding="16dp">
 
+    <!-- הצגת אייקון המתנדב -->
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="50dp"
+        android:layout_height="50dp" />
+
+    <!-- הצגת טקסט המתנדב -->
     <TextView
         android:id="@+id/textView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/rubik_bold"
-        android:text="בייביסיסטר למשפחות המילואים"
-        android:textSize="20sp"
-        tools:layout_editor_absoluteX="71dp"
-        tools:layout_editor_absoluteY="32dp" />
+        android:layout_marginStart="16dp"
+        android:text="סוג התנדבות"
+        android:textSize="16sp" />
 
+    <!-- כוכב אם יש -->
     <ImageView
-        android:id="@+id/imageView4"
-        android:layout_width="76dp"
-        android:layout_height="155dp"
-        app:srcCompat="@drawable/img_5"
-        tools:layout_editor_absoluteX="-5dp"
-        tools:layout_editor_absoluteY="-30dp" />
+        android:id="@+id/star"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="8dp" />
 
-    <ImageView
-        android:id="@+id/imageView5"
-        android:layout_width="41dp"
-        android:layout_height="197dp"
-        app:srcCompat="@drawable/img_4"
-        tools:layout_editor_absoluteX="354dp"
-        tools:layout_editor_absoluteY="-55dp" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>

@@ -9,7 +9,7 @@ public class Toy {
     public Toy(String text, String icon) {
         this.text = text;
         this.icon = icon;
-        this.star = star;
+        this.star = "star"; // תמיד יכיל את שם האייקון של הכוכב
     }
 
     // Getters
