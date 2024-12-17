@@ -136,12 +136,12 @@ public class new_volnteer extends AppCompatActivity {
 
     // מחלקה לייצוג מתנדב
     public static class Volunteer {
-        public String type;
-        public String location;
-        public String date;
-        public String minimumAge;
-        public String hours;
-        public int iconResource; // מזהה האייקון
+        private String type;
+        private String location;
+        private String date;
+        private String minimumAge;
+        private String hours;
+        private int iconResource; // מזהה האייקון
 
         // קונסטרקטור ריק עבור Firebase
         public Volunteer() {}
@@ -153,6 +153,56 @@ public class new_volnteer extends AppCompatActivity {
             this.date = date;
             this.minimumAge = minimumAge;
             this.hours = hours;
+            this.iconResource = iconResource;
+        }
+
+        // Getters
+        public String getType() {
+            return type;
+        }
+
+        public String getLocation() {
+            return location;
+        }
+
+        public String getDate() {
+            return date;
+        }
+
+        public String getMinimumAge() {
+            return minimumAge;
+        }
+
+        public String getHours() {
+            return hours;
+        }
+
+        public int getIconResource() {
+            return iconResource;
+        }
+
+        // Setters
+        public void setType(String type) {
+            this.type = type;
+        }
+
+        public void setLocation(String location) {
+            this.location = location;
+        }
+
+        public void setDate(String date) {
+            this.date = date;
+        }
+
+        public void setMinimumAge(String minimumAge) {
+            this.minimumAge = minimumAge;
+        }
+
+        public void setHours(String hours) {
+            this.hours = hours;
+        }
+
+        public void setIconResource(int iconResource) {
             this.iconResource = iconResource;
         }
     }

@@ -2,14 +2,12 @@ package com.example.romyprojectandroid;
 
 public class Toy {
     private String text;
-    private String icon;
-    private String star;
+    private long icon;
 
-    // Constructor
-    public Toy(String text, String icon) {
-        this.text = text;
-        this.icon = icon;
-        this.star = "star"; // תמיד יכיל את שם האייקון של הכוכב
+    // Constructor with default values in case parameters are null
+    public Toy(String text, long icon) {
+        this.text = text != null ? text : "לא צוין"; // Default if text is null
+        this.icon = icon; // Default value for icon
     }
 
     // Getters
@@ -17,12 +15,8 @@ public class Toy {
         return text;
     }
 
-    public String getIcon() {
+    public long getIcon() {
         return icon;
-    }
-
-    public String getStar() {
-        return star;
     }
 
     // Setters
@@ -30,11 +24,7 @@ public class Toy {
         this.text = text;
     }
 
-    public void setIcon(String icon) {
+    public void setIcon(long icon) {
         this.icon = icon;
-    }
-
-    public void setStar(String star) {
-        this.star = star;
     }
 }

@@ -17,21 +17,19 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 
 public class coustom_layout extends AppCompatActivity {
-    private ArrayList<Toy> toys = new ArrayList<>(); // רשימת ההתנדבויות
-    private ToyAdapter adapter; // מתאם לרשימה
+    private final ArrayList<Toy> toys = new ArrayList<>();
+    private ToyAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_coustom_layout);
 
-        // חיבור RecyclerView ל-Adapter
         RecyclerView recyclerView = findViewById(R.id.recyclerView_list);
         adapter = new ToyAdapter(toys);
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-        // שליפת נתונים מ-Firebase
         fetchVolunteersFromFirebase();
     }
 
@@ -41,15 +39,21 @@ public class coustom_layout extends AppCompatActivity {
         volunteersRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                toys.clear(); // מנקה את הרשימה לפני שמוסיף את הנתונים
+                toys.clear();
                 for (DataSnapshot data : snapshot.getChildren()) {
-                    Volunteer volunteer = data.getValue(Volunteer.class); // ודא שהמחלקה Volunteer קיימת
-                    if (volunteer != null) {
-                        // יוצר אובייקט Toy לכל התנדבות עם אייקון כוכב
-                        toys.add(new Toy(volunteer.type, volunteer.icon)); // שם אייקון כוכב כברירת מחדל
+                    try {
+                        // Extracting data directly
+                        String text = data.child("type").getValue(String.class);
+                        Long icon = data.child("iconResource").getValue(Long.class);
+
+                        if (text != null && icon != null) {
+                            toys.add(new Toy(text, icon));
+                        }
+                    } catch (Exception e) {
+                        Toast.makeText(coustom_layout.this, "שגיאה בעיבוד הנתונים", Toast.LENGTH_SHORT).show();
                     }
                 }
-                adapter.notifyDataSetChanged(); // עדכון הרשימה ב-RecyclerView
+                adapter.notifyDataSetChanged();
             }
 
             @Override
@@ -57,18 +61,5 @@ public class coustom_layout extends AppCompatActivity {
                 Toast.makeText(coustom_layout.this, "שגיאה בטעינת הנתונים: " + error.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
-    }
-
-    // מחלקה פנימית ל-Volunteer (אם אינה קיימת בקובץ נפרד)
-    public static class Volunteer {
-        public String type;
-        public String icon; // שדה עבור שם האייקון
-
-        public Volunteer() {} // קונסטרקטור ריק עבור Firebase
-
-        public Volunteer(String type, String icon) {
-            this.type = type;
-            this.icon = icon;
-        }
     }
 }

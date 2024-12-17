@@ -12,7 +12,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
 
 public class ToyAdapter extends RecyclerView.Adapter<ToyAdapter.ToyViewHolder> {
-    private ArrayList<Toy> toys;
+
+    private final ArrayList<Toy> toys;
 
     public ToyAdapter(ArrayList<Toy> toys) {
         this.toys = toys;
@@ -21,31 +22,29 @@ public class ToyAdapter extends RecyclerView.Adapter<ToyAdapter.ToyViewHolder> {
     @NonNull
     @Override
     public ToyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        // טוען את התצוגה של כל פריט ב-RecyclerView
         View toyView = LayoutInflater.from(parent.getContext()).inflate(R.layout.recylclerwriter, parent, false);
         return new ToyViewHolder(toyView);
     }
 
     @Override
     public void onBindViewHolder(@NonNull ToyViewHolder holder, int position) {
-        Toy current = toys.get(position);
-        holder.textTextView.setText(current.getText());
+        if (position >= toys.size()) return;
 
-        // טיפול באייקון
-        int iconResourceId = holder.itemView.getContext().getResources().getIdentifier(current.getIcon(), "drawable", holder.itemView.getContext().getPackageName());
+        Toy currentToy = toys.get(position);
+
+        // Set text
+        holder.textTextView.setText(currentToy.getText());
+
+        // Set icon
+        int iconResourceId = (int) currentToy.getIcon(); // Convert long to int
         if (iconResourceId != 0) {
             holder.iconImageView.setImageResource(iconResourceId);
         } else {
-            holder.iconImageView.setVisibility(View.GONE); // מסתיר את התמונה אם לא נמצא
+            holder.iconImageView.setImageResource(R.drawable.img); // Default icon
         }
 
-        // טיפול בכוכב
-        if (current.getStar() != null && !current.getStar().isEmpty()) {
-            int starResourceId = holder.itemView.getContext().getResources().getIdentifier(current.getStar(), "drawable", holder.itemView.getContext().getPackageName());
-            if (starResourceId != 0) {
-                holder.starImageView.setImageResource(starResourceId);
-            }
-        }
+        // Set star icon (always the same)
+        holder.starImageView.setImageResource(R.drawable.star);
     }
 
     @Override
@@ -62,7 +61,7 @@ public class ToyAdapter extends RecyclerView.Adapter<ToyAdapter.ToyViewHolder> {
             super(itemView);
             textTextView = itemView.findViewById(R.id.textView3);
             iconImageView = itemView.findViewById(R.id.imageView4);
-            starImageView = itemView.findViewById(R.id.star);
+            starImageView = itemView.findViewById(R.id.starImageView); // Reference for star icon
         }
     }
 }
