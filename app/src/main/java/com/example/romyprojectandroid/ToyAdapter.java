@@ -1,5 +1,8 @@
 package com.example.romyprojectandroid;
 
+import android.content.Context;
+import android.content.Intent;
+import android.telecom.Call;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,9 +17,11 @@ import java.util.ArrayList;
 public class ToyAdapter extends RecyclerView.Adapter<ToyAdapter.ToyViewHolder> {
 
     private final ArrayList<Toy> toys;
+    private final Context listVolunteerActivity;
 
-    public ToyAdapter(ArrayList<Toy> toys) {
+    public ToyAdapter(ArrayList<Toy> toys, Context listVolunteerActivity) {
         this.toys = toys;
+        this.listVolunteerActivity = listVolunteerActivity;
     }
 
     @NonNull
@@ -43,6 +48,14 @@ public class ToyAdapter extends RecyclerView.Adapter<ToyAdapter.ToyViewHolder> {
             holder.iconImageView.setImageResource(R.drawable.img); // Default icon
         }
 
+
+        holder.iconImageView.setOnClickListener(v -> {
+            Intent intent = new Intent(this.listVolunteerActivity, details.class);
+            intent.putExtra("volunteerId", currentToy.getKey() ) ;
+            this.listVolunteerActivity.startActivity(intent);
+        });
+
+
         // Set star icon (always the same)
         holder.starImageView.setImageResource(R.drawable.star);
     }
@@ -62,6 +75,8 @@ public class ToyAdapter extends RecyclerView.Adapter<ToyAdapter.ToyViewHolder> {
             textTextView = itemView.findViewById(R.id.textView3);
             iconImageView = itemView.findViewById(R.id.imageView4);
             starImageView = itemView.findViewById(R.id.starImageView); // Reference for star icon
+
+
         }
     }
 }

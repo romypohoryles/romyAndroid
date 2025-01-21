@@ -26,7 +26,7 @@ public class coustom_layout extends AppCompatActivity {
         setContentView(R.layout.activity_coustom_layout);
 
         RecyclerView recyclerView = findViewById(R.id.recyclerView_list);
-        adapter = new ToyAdapter(toys);
+        adapter = new ToyAdapter(toys,this);
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
@@ -47,7 +47,7 @@ public class coustom_layout extends AppCompatActivity {
                         Long icon = data.child("iconResource").getValue(Long.class);
 
                         if (text != null && icon != null) {
-                            toys.add(new Toy(text, icon));
+                            toys.add(new Toy(text, icon,data.getKey()));
                         }
                     } catch (Exception e) {
                         Toast.makeText(coustom_layout.this, "שגיאה בעיבוד הנתונים", Toast.LENGTH_SHORT).show();

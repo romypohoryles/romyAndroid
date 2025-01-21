@@ -40,25 +40,25 @@ public class login extends AppCompatActivity {
 
     // פונקציה לבדוק אם הסיסמה תקינה
     private boolean isPasswordValid(String password) {
-        if (password.length() < 8) {
-            return false; // אורך מינימלי של 8 תווים
-        }
-
-        if (!password.matches(".*[A-Z].*")) {
-            return false; // חייבת להיות לפחות אות גדולה אחת
-        }
-
-        if (!password.matches(".*[a-z].*")) {
-            return false; // חייבת להיות לפחות אות קטנה אחת
-        }
-
-        if (!password.matches(".*\\d.*")) {
-            return false; // חייבת להיות לפחות ספרה אחת
-        }
-
-        if (!password.matches(".*[@#$%^&+=!].*")) {
-            return false; // חייבת להיות לפחות תו מיוחד אחד
-        }
+//        if (password.length() < 8) {
+//            return false; // אורך מינימלי של 8 תווים
+//        }
+//
+//        if (!password.matches(".*[A-Z].*")) {
+//            return false; // חייבת להיות לפחות אות גדולה אחת
+//        }
+//
+//        if (!password.matches(".*[a-z].*")) {
+//            return false; // חייבת להיות לפחות אות קטנה אחת
+//        }
+//
+//        if (!password.matches(".*\\d.*")) {
+//            return false; // חייבת להיות לפחות ספרה אחת
+//        }
+//
+//        if (!password.matches(".*[@#$%^&+=!].*")) {
+//            return false; // חייבת להיות לפחות תו מיוחד אחד
+//        }
 
         return true; // הסיסמה תקינה
     }

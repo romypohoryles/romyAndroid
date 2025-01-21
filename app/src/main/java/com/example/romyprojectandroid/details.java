@@ -1,8 +1,9 @@
 package com.example.romyprojectandroid;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
+import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -14,20 +15,23 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-public class DetailsActivity extends AppCompatActivity {
-    private TextView volunteerTypeTextView;
-    private ImageView iconImageView;
-    private ImageView starImageView;
+public class details extends AppCompatActivity {
+    // קישור ל-Views במסך
+    private EditText volunteerTypeInput, locationInput, dateInput, minimumAgeInput, hoursInput;
+    private ImageView selectedIconPreview;
 
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_details);
+        setContentView(R.layout.details);
 
-        // קישור ל-Views במסך
-        volunteerTypeTextView = findViewById(R.id.volunteerTypeTextView);
-        iconImageView = findViewById(R.id.iconImageView);
-        starImageView = findViewById(R.id.starImageView);
+        // קישור ל-Views במסך (לפי ה-ID המופיעים ב-XML)
+        volunteerTypeInput = findViewById(R.id.volunteerTypeInput);
+        locationInput = findViewById(R.id.locationInput);
+        dateInput = findViewById(R.id.dateInput);
+        minimumAgeInput = findViewById(R.id.minimumAgeInput);
+        hoursInput = findViewById(R.id.hoursInput);
 
         // קבלת ה-ID של ההתנדבות מהIntent
         String volunteerId = getIntent().getStringExtra("volunteerId");
@@ -51,27 +55,32 @@ public class DetailsActivity extends AppCompatActivity {
                     try {
                         // הוצאת נתונים ממסד הנתונים
                         String volunteerType = snapshot.child("type").getValue(String.class);
-                        Long iconResource = snapshot.child("iconResource").getValue(Long.class);
+                        String location = snapshot.child("location").getValue(String.class);
+                        String date = snapshot.child("date").getValue(String.class);
+                        String minimumAge = snapshot.child("minimumAge").getValue(String.class);
+                        String hours = snapshot.child("hours").getValue(String.class);
 
-                        if (volunteerType != null && iconResource != null) {
-                            // הצגת נתונים ב-UI
-                            volunteerTypeTextView.setText(volunteerType);
-                            iconImageView.setImageResource(iconResource.intValue());
-
-                            // הצגת אייקון כוכב
-                            starImageView.setImageResource(R.drawable.star);
+                        // הצגת הנתונים אם הם לא null
+                        if (volunteerType != null && location != null && date != null &&
+                                minimumAge != null) {
+                            volunteerTypeInput.setText(volunteerType);
+                            locationInput.setText(location);
+                            dateInput.setText(date);
+                            minimumAgeInput.setText(minimumAge);
+                            hoursInput.setText(hours);
                         }
+
                     } catch (Exception e) {
-                        Toast.makeText(DetailsActivity.this, "שגיאה בעיבוד הנתונים", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(details.this, "שגיאה בעיבוד הנתונים", Toast.LENGTH_SHORT).show();
                     }
                 } else {
-                    Toast.makeText(DetailsActivity.this, "ההתנדבות לא נמצאה", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(details.this, "ההתנדבות לא נמצאה", Toast.LENGTH_SHORT).show();
                 }
             }
 
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
-                Toast.makeText(DetailsActivity.this, "שגיאה בטעינת הנתונים: " + error.getMessage(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(details.this, "שגיאה בטעינת הנתונים: " + error.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
     }
