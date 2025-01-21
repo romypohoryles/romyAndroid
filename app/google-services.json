@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "910716803712",
+    "firebase_url": "https://romyprojectandroid-default-rtdb.europe-west1.firebasedatabase.app",
+    "project_id": "romyprojectandroid",
+    "storage_bucket": "romyprojectandroid.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:910716803712:android:dfa9216357072a239e2465",
+        "android_client_info": {
+          "package_name": "com.example.romyprojectandroid"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCXwlvtvUZ0SzL4vFJN4iwDpnLUQSdDNXg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
