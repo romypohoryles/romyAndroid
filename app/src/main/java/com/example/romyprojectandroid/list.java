@@ -1,7 +1,5 @@
 package com.example.romyprojectandroid;
 
-import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Toast;
 import androidx.annotation.NonNull;
@@ -27,7 +25,7 @@ public class list extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_list); // ודאי שיש לך קובץ XML מתאים
+        setContentView(R.layout.activity_list);
 
         recyclerView = findViewById(R.id.recyclerViewUsers);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
@@ -38,7 +36,6 @@ public class list extends AppCompatActivity {
 
         usersRef = FirebaseDatabase.getInstance().getReference("Users");
 
-        // קריאת הנתונים מ-Firebase
         usersRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {

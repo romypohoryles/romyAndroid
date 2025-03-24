@@ -6,6 +6,19 @@
     android:layout_height="match_parent"
     tools:context=".details">
 
+    <Button
+        android:id="@+id/button_my_volunteering"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/rubik_bold"
+        android:text="ההתנדבויות שלי"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/linearLayoutLabels"
+        app:layout_constraintVertical_bias="0.808" />
+
     <TextView
         android:id="@+id/titel"
         android:layout_width="wrap_content"
@@ -28,7 +41,7 @@
         android:orientation="vertical"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/titel"
-        app:layout_constraintBottom_toTopOf="@id/button9"
+        app:layout_constraintBottom_toTopOf="@id/button_view_volunteers"
         app:layout_constraintEnd_toStartOf="@id/linearLayoutInputs"
         app:layout_constraintHorizontal_bias="0.5"
         android:layout_margin="16dp">
@@ -93,7 +106,7 @@
         app:layout_constraintTop_toBottomOf="@id/titel"
         app:layout_constraintStart_toEndOf="@id/linearLayoutLabels"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/button9"
+        app:layout_constraintBottom_toTopOf="@id/button_view_volunteers"
         android:layout_margin="16dp">
 
         <EditText
@@ -131,15 +144,28 @@
     </LinearLayout>
 
     <Button
-        android:id="@+id/button9"
+        android:id="@+id/button_view_volunteers"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/rubik_bold"
-        android:text="הרשמה לפעילות"
+        android:text="צפייה ברשומים להתנדבות"
         android:textSize="20sp"
         app:layout_constraintTop_toBottomOf="@id/linearLayoutLabels"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="parent" />
+
+    <Button
+        android:id="@+id/button_register_volunteer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/rubik_bold"
+        android:text="הרשמה להתנדבות"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/linearLayoutLabels"
+        app:layout_constraintVertical_bias="0.244" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

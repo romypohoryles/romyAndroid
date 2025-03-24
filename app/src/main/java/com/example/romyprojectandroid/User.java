@@ -1,12 +1,10 @@
 package com.example.romyprojectandroid;
 
-public class User {
-    public String name;
-    public String lastName;
-    public String email;
-    public String dateOfBirth;
+import java.io.Serializable;
 
-    // בנאי ריק נדרש עבור Firebase
+public class User implements Serializable {
+    public String name, lastName, email, dateOfBirth;
+
     public User() { }
 
     public User(String name, String lastName, String email, String dateOfBirth) {

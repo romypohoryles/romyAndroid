@@ -34,13 +34,8 @@ public class userAdapter extends RecyclerView.Adapter<userAdapter.UserViewHolder
 
         User currentUser = users.get(position);
 
-        // הצגת שם ושם משפחה
         holder.nameTextView.setText(currentUser.name + " " + currentUser.lastName);
-
-        // הצגת אימייל
         holder.emailTextView.setText(currentUser.email);
-
-        // הצגת תאריך לידה
         holder.birthDateTextView.setText("Date of Birth: " + currentUser.dateOfBirth);
     }
 
